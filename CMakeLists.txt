@@ -1,28 +1,35 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.16)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/modules)
+project(simplex VERSION 1.0 DESCRIPTION "Blur Studio's Simplex Blendshape Combination System" LANGUAGES CXX)
 
-project(BlurRelax)
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
-find_package(Maya REQUIRED)
-find_package(OpenGL REQUIRED)
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/../output/Maya${MAYA_VERSION})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES
-    "src/blurRelaxNode.cpp"
-    "src/blurRelaxNode.h"
-    "src/fastRelax.cpp"
-    "src/fastRelax.h"
-    "src/fastMayaRelax.cpp"
-    "src/fastMayaRelax.h"
-    "src/pluginRegister.cpp"
-)
+# (defined in FindMaya.cmake, copied here for reference)
+# set(MAYA_INSTALL_BASE_PATH "" CACHE STRING
+#     "Root path containing your maya installations, e.g. /usr/autodesk or /Applications/Autodesk/"
+# )
+set(MAYA_VERSION 2020 CACHE STRING "Maya version")
+set(MAYA_PYTHON YES CACHE STRING "Link the python module to mayapy")
+set(MAYA_2022_PYTHON 2 CACHE STRING "Major Version of python when compiling for Maya 2022")
+set(SYSTEM_PY_VERSON 3 CACHE STRING "If Not linking to mayapy, the installed version of python to use")
+set(BUILD_MAYA YES CACHE STRING "Build the maya plugin")
+set(BUILD_PYTHON YES CACHE STRING "Build the python module")
 
-include_directories(${MAYA_INCLUDE_DIR})
-link_directories(${MAYA_LIBRARY_DIR})
-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} ${MAYA_LIBRARIES} ${OPENGL_LIBRARY})
+if(NOT (${BUILD_MAYA} OR ${BUILD_PYTHON}))
+    message(FATAL_ERROR "You have to build for either the python or maya")
+endif()
 
-MAYA_PLUGIN(${PROJECT_NAME})
-install(TARGETS ${PROJECT_NAME} ${MAYA_TARGET_TYPE} DESTINATION plug-ins)
+# The static simplex library linked into the other projects
+add_subdirectory("src/lib")
+
+if (${BUILD_MAYA})
+    # Build the maya plugin
+    add_subdirectory("src/maya")
+endif()
+
+if (${BUILD_PYTHON})
+    # Build the python plugin
+    add_subdirectory("src/python")
+endif()
 
