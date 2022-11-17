@@ -3,8 +3,8 @@ name: build
 on:
   push:
     branches: [ master ]
-    tags:
-      - v*
+   #tags:
+   #  - v*
   pull_request:
     branches: [ master ]
 
@@ -137,16 +137,16 @@ jobs:
 
       matrix:
        include:
-          - maya: "2018.7"
-            year: "2018"
-          - maya: "2019.3"
-            year: "2019"
+         #- maya: "2018.7"
+         #  year: "2018"
+         #- maya: "2019.3"
+         #  year: "2019"
           - maya: "2020.4"
             year: "2020"
-          - maya: "2022.3"
-            year: "2022"
-          - maya: "2023"
-            year: "2023"
+         #- maya: "2022.3"
+         #  year: "2022"
+         #- maya: "2023"
+         #  year: "2023"
 
     steps:
       - name: Checkout code
@@ -166,7 +166,7 @@ jobs:
       - name: Repath Artifacts
         run: |
           mkdir -p artifacts/plug-ins
-          cp ./build/src/maya/BlurRelax.so artifacts/plug-ins
+          cp ./build/BlurRelax.so artifacts/plug-ins
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3

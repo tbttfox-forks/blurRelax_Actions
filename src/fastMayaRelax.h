@@ -53,7 +53,7 @@ public:
 
 
 	MMatrix getMatrixAtPoint(MObject &mesh, MFnMesh &meshFn, MItMeshVertex &vertIt) const;
-	std::vector<MMatrix> MayaRelaxer::getVertMatrices(MObject &mesh, MFnMesh &meshFn) const;
+	std::vector<MMatrix> getVertMatrices(MObject &mesh, MFnMesh &meshFn) const;
 
 };
 
