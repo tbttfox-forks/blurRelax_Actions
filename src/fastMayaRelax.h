@@ -33,7 +33,7 @@ public:
 	) : Relaxer(borderBehavior, hardEdgeBehavior, groupEdgeBehavior, rawNeighbors, rawHardEdges, rawVertData)
 	{ }
 		
-	pointArray_t MayaRelaxer::quickRelax(
+	pointArray_t quickRelax(
 		MObject &mesh,
 		const bool slide,
 		const bool doReproject,
