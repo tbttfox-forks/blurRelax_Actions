@@ -218,9 +218,9 @@ jobs:
 
       - name: Create distribution
         run: |
-          #cp ./BlurRelax.mod modules/
+          cp ./BlurRelax.mod modules/
           mkdir -p modules/BlurRelax/scripts
-          #cp -r ./scripts modules/BlurRelax/scripts
+          cp -r ./scripts modules/BlurRelax/scripts
           zip -r BlurRelax-${{env.RELEASE_VERSION}}.zip modules/
 
       - name: Upload distribution
