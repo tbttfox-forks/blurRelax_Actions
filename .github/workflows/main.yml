@@ -33,16 +33,16 @@ jobs:
 
       matrix:
        include:
-          - maya: "2018"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2018/Autodesk_Maya_2018_7_Update_DEVKIT_Windows.zip"
-          - maya: "2019"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2019/Autodesk_Maya_2019_3_Update_DEVKIT_Windows.zip"
+         #- maya: "2018"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2018/Autodesk_Maya_2018_7_Update_DEVKIT_Windows.zip"
+         #- maya: "2019"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2019/Autodesk_Maya_2019_3_Update_DEVKIT_Windows.zip"
           - maya: "2020"
             devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2020/Autodesk_Maya_2020_4_Update_DEVKIT_Windows.zip"
-          - maya: "2022"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2022/Autodesk_Maya_2022_3_Update_DEVKIT_Windows.zip"
-          - maya: "2023"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2023/Autodesk_Maya_2023_DEVKIT_Windows.zip"
+         #- maya: "2022"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2022/Autodesk_Maya_2022_3_Update_DEVKIT_Windows.zip"
+         #- maya: "2023"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2023/Autodesk_Maya_2023_DEVKIT_Windows.zip"
 
     steps:
       - name: Checkout code
@@ -83,16 +83,16 @@ jobs:
 
       matrix:
        include:
-          - maya: "2018"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2018/Autodesk_Maya_2018_7_Update_DEVKIT_Mac.dmg"
-          - maya: "2019"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2019/Autodesk_Maya_2019_3_Update_DEVKIT_Mac.dmg"
+         #- maya: "2018"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2018/Autodesk_Maya_2018_7_Update_DEVKIT_Mac.dmg"
+         #- maya: "2019"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2019/Autodesk_Maya_2019_3_Update_DEVKIT_Mac.dmg"
           - maya: "2020"
             devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2020/Autodesk_Maya_2020_4_Update_DEVKIT_Mac.dmg"
-          - maya: "2022"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2022/Autodesk_Maya_2022_3_Update_DEVKIT_Mac.dmg"
-          - maya: "2023"
-            devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2023/Autodesk_Maya_2023_DEVKIT_Mac.dmg"
+         #- maya: "2022"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2022/Autodesk_Maya_2022_3_Update_DEVKIT_Mac.dmg"
+         #- maya: "2023"
+         #  devkit: "https://autodesk-adn-transfer.s3-us-west-2.amazonaws.com/ADN+Extranet/M%26E/Maya/devkit+2023/Autodesk_Maya_2023_DEVKIT_Mac.dmg"
 
     steps:
       - name: Checkout code
