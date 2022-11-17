@@ -86,6 +86,14 @@ def create_blur_relax(*args, **kwargs):
 
 
 
+
+
+
+
+
+
+
+
 def create_blur_relax_opts(*args, **kwargs):
     cmds.loadPlugin('BlurRelax', quiet=True)
     layout = mel.eval('getOptionBox')
@@ -183,6 +191,30 @@ def create_blur_relax_opts(*args, **kwargs):
 
 
 
+
+
+    mel.eval('setOptionBoxTitle("cvWrap Options");')
+    mel.eval('setOptionBoxCommandName("cvWrap");')
+    apply_close_button = mel.eval('getOptionBoxApplyAndCloseBtn;')
+    cmds.button(apply_close_button, e=True, command=apply_and_close)
+    apply_button = mel.eval('getOptionBoxApplyBtn;')
+    cmds.button(apply_button, e=True, command=create_cvwrap)
+    reset_button = mel.eval('getOptionBoxResetBtn;')
+    # For some reason, the buttons in the menu only accept MEL.
+    cmds.button(
+        reset_button,
+        e=True,
+        command='python("import cvwrap.menu; cvwrap.menu.reset_to_defaults()");',
+    )
+    close_button = mel.eval('getOptionBoxCloseBtn;')
+    cmds.button(close_button, e=True, command=close_option_box)
+    save_button = mel.eval('getOptionBoxSaveBtn;')
+    cmds.button(
+        save_button,
+        e=True,
+        command='python("import cvwrap.menu; cvwrap.menu.get_create_command_kwargs()");',
+    )
+    mel.eval('showOptionBox')
 
 
 
